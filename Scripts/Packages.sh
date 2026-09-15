@@ -73,6 +73,31 @@ if [[ "${WRT_PROFILE^^}" == "PLUS" ]]; then
 	UPDATE_PACKAGE "viking" "ones20250/packages" "main" "" "luci-app-timewol luci-app-wolplus"
 fi
 
+# === amneziawg start===
+AWG_REPO="https://github.com/2Grey/awg-openwrt"
+AWG_BRANCH="master"
+AWG_DIR="$GITHUB_WORKSPACE/wrt/package/amneziawg"
+
+rm -rf /tmp/awg-openwrt
+rm -rf "$AWG_DIR"
+mkdir -p "$AWG_DIR"
+
+git clone --depth 1 --branch "$AWG_BRANCH" "$AWG_REPO" /tmp/awg-openwrt
+if [ ! -d "/tmp/awg-openwrt/kmod-amneziawg" ]; then
+    echo "ERROR: awg-openwrt clone failed" >&2
+    exit 1
+fi
+
+cp -r /tmp/awg-openwrt/kmod-amneziawg      "$AWG_DIR/"
+cp -r /tmp/awg-openwrt/amneziawg-tools     "$AWG_DIR/"
+cp -r /tmp/awg-openwrt/luci-proto-amneziawg "$AWG_DIR/"
+
+AWG_COMMIT=$(cd /tmp/awg-openwrt && git rev-parse --short HEAD)
+echo "amneziawg 2Grey/awg-openwrt $AWG_BRANCH $AWG_COMMIT" >> "$GITHUB_WORKSPACE/Packages-log.txt"
+
+rm -rf /tmp/awg-openwrt   
+# === amneziawg end ===
+
 #UPDATE_PACKAGE "mosdns" "sbwml/luci-app-mosdns" "v5" "" "v2dat"
 
 #UPDATE_PACKAGE "luci-app-tailscale" "asvow/luci-app-tailscale" "main"
