@@ -7,7 +7,7 @@ CONFIG_PACKAGE_luci-app-partexp=y
 CONFIG_PACKAGE_luci-app-samba4=y
 #CONFIG_PACKAGE_luci-app-sqm=y
 #CONFIG_PACKAGE_sqm-scripts-nss=y
-CONFIG_PACKAGE_luci-app-wolplus=y
+CONFIG_PACKAGE_luci-app-wolplus=n
 CONFIG_PACKAGE_luci-app-sentinel=y
 CONFIG_PACKAGE_luci-app-arpbind=y
 CONFIG_PACKAGE_luci-app-firewall=n
@@ -169,4 +169,3 @@ CONFIG_PACKAGE_skb_recycler=n
 CONFIG_kmod-amneziawg=y
 CONFIG_amneziawg-tools=y
 CONFIG_luci-proto-amneziawg=y   
-
