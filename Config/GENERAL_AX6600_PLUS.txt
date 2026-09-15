@@ -2,11 +2,11 @@
 # 注意：本文件会在 GENERAL_AX6600.txt 之后追加，必要时覆盖纯净版的 n 选项。
 
 # Docker / 容器（管理界面统一用 dockerman，避免与 luci-app-docker 重复）
-CONFIG_PACKAGE_luci-app-dockerman=y
-CONFIG_PACKAGE_dockerd=y
-CONFIG_PACKAGE_docker=y
-CONFIG_PACKAGE_docker-compose=y
-CONFIG_PACKAGE_luci-lib-docker=y
+CONFIG_PACKAGE_luci-app-dockerman=n
+CONFIG_PACKAGE_dockerd=n
+CONFIG_PACKAGE_docker=n
+CONFIG_PACKAGE_docker-compose=n
+CONFIG_PACKAGE_luci-lib-docker=n
 CONFIG_PACKAGE_cgroupfs-mount=y
 CONFIG_PACKAGE_tini=y
 CONFIG_PACKAGE_kmod-veth=y
@@ -72,7 +72,7 @@ CONFIG_PACKAGE_adguardhome=y
 
 # 实用工具（对应源码由 Packages.sh 在 PLUS 版克隆）
 CONFIG_PACKAGE_luci-app-partexp=y
-CONFIG_PACKAGE_luci-app-wolplus=y
+CONFIG_PACKAGE_luci-app-wolplus=n
 
 # 实用工具（来自官方 feeds；samba4 文件共享已在通用配置 GENERAL_AX6600.txt 中启用）
 # 终端（网页 SSH）
@@ -94,5 +94,10 @@ CONFIG_PACKAGE_luci-proto-wireguard=y
 # USB 打印机支持（issue #11 用户请求；滚动内核无法事后 opkg 装 kmod，须随固件集成）
 CONFIG_PACKAGE_kmod-usb-printer=y
 # p910nd 打印服务器及其管理界面
-CONFIG_PACKAGE_p910nd=y
-CONFIG_PACKAGE_luci-app-p910nd=y
+CONFIG_PACKAGE_p910nd=n
+CONFIG_PACKAGE_luci-app-p910nd=n
+
+# add awg
+CONFIG_PACKAGE_kmod-amneziawg=y
+CONFIG_PACKAGE_amneziawg-tools=y
+CONFIG_PACKAGE_luci-proto-amneziawg=y
