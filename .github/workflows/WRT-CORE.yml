@@ -191,6 +191,11 @@ jobs:
             echo "caches missed!"
           fi
 
+      - name: Add AmneziaWG feed          # ← 新加的awg
+        run: |
+          #echo 'src-git amnezia https://github.com/amnezia-vpn/amneziawg-openwrt' >> feeds.conf.default
+          echo 'src-git amnezia https://github.com/2Grey/awg-openwrt' >> feeds.conf.default
+
       - name: Update Feeds
         run: |
           cd ./wrt/
